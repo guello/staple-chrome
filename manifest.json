@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Staple",
+  "version": "0.1.0",
+  "description": "Multi-purpose extension collecting different utilities in a single fast, performant, clean, portable and scalable extension",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "media/icon-16.png",
+    "32": "media/icon-32.png",
+    "48": "media/icon-48.png",
+    "128": "media/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Staple",
+    "default_popup": "action/action.html"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  },
+  "permissions": ["storage"],
+  "commands": {
+    "tab-switch": {
+      "description": "Switch to the most recently used tab",
+      "suggested_key": {
+        "default": "Alt+Q"
+      }
+    },
+    "tab-shift-left": {
+      "description": "Move the selected tabs left",
+      "suggested_key": {
+        "default": "Ctrl+Shift+PageUp"
+      }
+    },
+    "tab-shift-right": {
+      "description": "Move the selected tabs right",
+      "suggested_key": {
+        "default": "Ctrl+Shift+PageDown"
+      }
+    },
+    "tab-shift-next-window": {
+      "description": "Move the selected tabs to the next window",
+      "suggested_key": {
+        "default": "Alt+Shift+M"
+      }
+    },
+    "tab-shift-undock": {
+      "description": "Move the selected tabs to a new window"
+    }
+  }
+}

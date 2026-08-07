@@ -1,0 +1,17 @@
+{
+  "include": ["scripts", "src"],
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "es2022",
+    "types": ["chrome-types", "node"]
+  }
+}

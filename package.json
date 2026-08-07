@@ -1,0 +1,34 @@
+{
+  "name": "staple-chrome",
+  "version": "0.1.0",
+  "description": "Chrome extension collecting different essential utilities in a single fast, lightweight and scalable extension",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielecanepa/staple-chrome"
+  },
+  "packageManager": "pnpm@11.17.0",
+  "scripts": {
+    "build": "node scripts/build.mts",
+    "check": "pnpm run --parallel \"/^check:/\"",
+    "check:format": "oxfmt --check",
+    "check:knip": "knip",
+    "check:lint": "oxlint",
+    "check:types": "tsc --noEmit",
+    "fix": "oxlint --fix && oxfmt",
+    "package": "pnpm check && pnpm test && pnpm build && node scripts/package.mts",
+    "prepare": "git config core.hooksPath .githooks",
+    "test": "node scripts/test.mts",
+    "watch": "node scripts/build.mts --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "chrome-types": "^0.1.438",
+    "esbuild": "^0.28.1",
+    "knip": "^6.32.0",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "typescript": "^7.0.2"
+  }
+}
