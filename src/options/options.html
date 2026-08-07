@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Staple</title>
+    <style>
+      html {
+        background-color: #f8fafd;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        html {
+          background-color: #27282a;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="../ui/chrome.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body class="st-page">
+    <main class="st-page-body">
+      <h1 class="st-page-title">Staple</h1>
+      <div id="features"></div>
+      <footer class="st-page-footer">
+        <button type="button" id="shortcuts" class="st-text-button">Keyboard shortcuts</button>
+      </footer>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

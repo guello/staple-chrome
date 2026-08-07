@@ -1,0 +1,10 @@
+html,
+body {
+  width: 320px;
+}
+
+.st-actions {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px;
+}

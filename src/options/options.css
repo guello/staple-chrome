@@ -1,0 +1,46 @@
+.st-page {
+  min-height: 100vh;
+  background-color: var(--st-surface-1);
+}
+
+.st-page-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.st-page-title {
+  margin: 0 0 16px;
+  padding: 0 var(--st-inline-padding);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.st-card {
+  margin-bottom: 16px;
+  border-radius: var(--st-radius);
+  background-color: var(--st-surface);
+}
+
+.st-card-header,
+.st-setting {
+  display: flex;
+  align-items: center;
+  min-height: var(--st-row-height);
+  padding: 12px var(--st-inline-padding);
+}
+
+.st-setting {
+  border-top: 1px solid var(--st-divider);
+}
+
+.st-card-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.st-page-footer {
+  display: flex;
+  padding: 0 12px;
+}

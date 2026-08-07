@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Staple</title>
+    <style>
+      html {
+        background-color: #fff;
+        color-scheme: light dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        html {
+          background-color: #1f1f1f;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="../ui/chrome.css" />
+    <link rel="stylesheet" href="action.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="st-visually-hidden">Staple</h1>
+      <div id="tools" class="st-list"></div>
+    </main>
+    <hr class="st-divider" />
+    <footer class="st-actions">
+      <button type="button" id="settings" class="st-text-button">Settings</button>
+      <button type="button" id="shortcuts" class="st-text-button">Shortcuts</button>
+    </footer>
+    <script type="module" src="action.js"></script>
+  </body>
+</html>

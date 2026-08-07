@@ -1,0 +1,250 @@
+/* Design tokens and shared parts mirroring Chrome's own GM3 surfaces. */
+
+:root {
+  color-scheme: light dark;
+
+  --st-primary: #0b57d0;
+  --st-on-primary: #ffffff;
+  --st-surface: #ffffff;
+  --st-surface-1: #f8fafd;
+  --st-surface-2: #f3f6fc;
+  --st-on-surface: #1f1f1f;
+  --st-on-surface-variant: #444746;
+  --st-outline: #747775;
+  --st-divider: rgba(0, 0, 0, 0.14);
+  --st-hover: rgba(31, 31, 31, 0.06);
+  --st-pressed: rgba(31, 31, 31, 0.12);
+  --st-disabled-opacity: 0.38;
+
+  --st-radius: 8px;
+  --st-row-height: 48px;
+  --st-inline-padding: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --st-primary: #a8c7fa;
+    --st-on-primary: #062e6f;
+    --st-surface: #1f1f1f;
+    --st-surface-1: #27282a;
+    --st-surface-2: #2d2f31;
+    --st-on-surface: #e3e3e3;
+    --st-on-surface-variant: #c4c7c5;
+    --st-outline: #8e918f;
+    --st-divider: #5e5e5e;
+    --st-hover: rgba(253, 252, 251, 0.1);
+    --st-pressed: rgba(253, 252, 251, 0.16);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--st-surface);
+  color: var(--st-on-surface);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--st-primary);
+  outline-offset: 2px;
+}
+
+.st-list {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.st-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--st-row-height);
+  margin: 0;
+  padding: 0 var(--st-inline-padding);
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+
+button.st-row {
+  cursor: pointer;
+}
+
+button.st-row:hover {
+  background-color: var(--st-hover);
+}
+
+button.st-row:active {
+  background-color: var(--st-pressed);
+}
+
+.st-row-icon {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-inline-end: 16px;
+  margin-inline-start: -8px;
+  border-radius: var(--st-radius);
+  background-color: var(--st-surface-2);
+  color: var(--st-on-surface-variant);
+}
+
+.st-row-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentcolor;
+}
+
+.st-row-text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.st-row-title {
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.st-row-meta {
+  color: var(--st-on-surface-variant);
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.st-row-control {
+  flex: 0 0 auto;
+  margin-inline-start: 16px;
+}
+
+.st-section-header {
+  display: flex;
+  align-items: center;
+  height: var(--st-row-height);
+  padding: 0 var(--st-inline-padding);
+  color: var(--st-on-surface-variant);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.st-empty {
+  padding: 20px var(--st-inline-padding);
+  color: var(--st-on-surface-variant);
+}
+
+.st-divider {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background-color: var(--st-divider);
+}
+
+/* Text button, the shape Chrome uses for links inside its own surfaces. */
+.st-text-button {
+  height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 18px;
+  background: none;
+  color: var(--st-primary);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 500;
+}
+
+.st-text-button:hover {
+  background-color: var(--st-hover);
+}
+
+.st-text-button:active {
+  background-color: var(--st-pressed);
+}
+
+/* Toggle following cr-toggle metrics from chrome://settings. */
+.st-toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 14px;
+  margin: 0;
+  border-radius: 7px;
+  background-color: var(--st-outline);
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 80ms linear;
+}
+
+.st-toggle::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  inset-inline-start: -1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--st-surface);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 80ms linear;
+}
+
+.st-toggle:checked {
+  background-color: color-mix(in srgb, var(--st-primary) 50%, transparent);
+}
+
+.st-toggle:checked::after {
+  transform: translateX(20px);
+  background-color: var(--st-primary);
+}
+
+.st-toggle:dir(rtl):checked::after {
+  transform: translateX(-20px);
+}
+
+.st-select {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--st-outline);
+  border-radius: 4px;
+  background-color: var(--st-surface);
+  color: inherit;
+  font: inherit;
+}
+
+.st-disabled {
+  opacity: var(--st-disabled-opacity);
+  pointer-events: none;
+}
+
+.st-visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+}
