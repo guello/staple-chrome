@@ -9,17 +9,18 @@
   },
   "packageManager": "pnpm@11.17.0",
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks",
     "build": "node scripts/build.mts",
+    "watch": "node scripts/build.mts --watch",
     "check": "pnpm run --parallel \"/^check:/\"",
     "check:format": "oxfmt --check",
     "check:knip": "knip",
     "check:lint": "oxlint",
     "check:types": "tsc --noEmit",
     "fix": "oxlint --fix && oxfmt",
-    "package": "pnpm check && pnpm test && pnpm build && node scripts/package.mts",
-    "prepare": "git config core.hooksPath .githooks",
     "test": "node scripts/test.mts",
-    "watch": "node scripts/build.mts --watch"
+    "ci": "pnpm run check && pnpm run test",
+    "package": "pnpm run ci && pnpm run build && node scripts/package.mts"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
