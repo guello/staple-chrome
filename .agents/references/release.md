@@ -13,7 +13,7 @@ Commits are signed through git's `ssh-keygen` signer. Never disable signing. Nev
 
 ## Still open for v1
 
-- The local clone has no `origin`. `github.com/gabrielecanepa/staple-chrome` exists but is private, so shipping means adding the remote, pushing `main`, and flipping visibility to public rather than running `gh repo create`.
+- The local clone has no `origin`. `github.com/guello/staple-chrome` exists but is private, so shipping means adding the remote, pushing `main`, and flipping visibility to public rather than running `gh repo create`.
 - No `v0.1.0` tag and no GitHub release yet.
 - Not submitted to the Chrome Web Store.
 

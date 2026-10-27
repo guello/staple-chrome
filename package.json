@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gabrielecanepa/staple-chrome"
+    "url": "https://github.com/guello/staple-chrome"
   },
   "packageManager": "pnpm@11.17.0",
   "scripts": {

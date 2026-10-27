@@ -1,6 +1,6 @@
 # Staple
 
-Manifest V3 Chrome extension collecting small tab utilities behind keyboard commands. It is the Chrome counterpart of [staple-vscode](https://github.com/gabrielecanepa/staple-vscode), whose standard this repository follows: minimal dependencies, hand-written build scripts, oxfmt plus oxlint plus knip plus tsc as the only gates, one folder per feature with an `enabled` setting, conventional commits.
+Manifest V3 Chrome extension collecting small tab utilities behind keyboard commands. It is the Chrome counterpart of [staple-vscode](https://github.com/guello/staple-vscode), whose standard this repository follows: minimal dependencies, hand-written build scripts, oxfmt plus oxlint plus knip plus tsc as the only gates, one folder per feature with an `enabled` setting, conventional commits.
 
 ## Commands
 
