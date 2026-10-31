@@ -13,18 +13,20 @@ paths:
 
 Chrome allows any number of declared commands but at most four `suggested_key` defaults per extension. All four are spent, so a new default has to displace one and the extra command ships unbound, with the user assigning it at `chrome://extensions/shortcuts`.
 
-| Command                 | Default               | Why                                                                             |
-| ----------------------- | --------------------- | ------------------------------------------------------------------------------- |
-| `tab-switch`            | `Alt+Q`               | Same key as the extension this replaces, and free on every platform.            |
-| `tab-shift-left`        | `Ctrl+Shift+PageUp`   | The Firefox and Vivaldi move-tab key. `Ctrl+Shift+Left` shadows word selection. |
-| `tab-shift-right`       | `Ctrl+Shift+PageDown` | Same.                                                                           |
-| `tab-shift-next-window` | `Alt+Shift+M`         | `Ctrl+Shift+M` collides with Chrome's profile switcher.                         |
-| `tab-shift-undock`      | none                  | Least used, so it is the one left unbound.                                      |
+`chrome://extensions/shortcuts` sorts the commands by id. The ids keep the order left, right, next window, new window, previous tab.
+
+| Command                    | Default               | macOS                 | Why                                            |
+| -------------------------- | --------------------- | --------------------- | ---------------------------------------------- |
+| `tab-shift-left`           | `Ctrl+Shift+PageUp`   | `MacCtrl+Shift+Left`  | `Ctrl+Shift+Left` selects words outside macOS. |
+| `tab-shift-right`          | `Ctrl+Shift+PageDown` | `MacCtrl+Shift+Right` | Same.                                          |
+| `tab-shift-to-next-window` | `Alt+Shift+M`         | `MacCtrl+Shift+Down`  | `Ctrl+Shift+M` is Chrome's profile switcher.   |
+| `tab-shift-undock`         | none                  | `MacCtrl+Shift+Up`    | Completes the arrow group on macOS only.       |
+| `tab-switch`               | none                  | none                  | Left unbound. The user picks the key.          |
 
 Rules Chrome enforces, all of which reject the manifest or silently drop the binding:
 
 - A shortcut must include `Ctrl` or `Alt`. `Ctrl+Alt` combinations are invalid.
-- On macOS, `Ctrl` in the manifest maps to Command automatically. `MacCtrl` forces Control but breaks the other platforms, so avoid it.
+- On macOS, `Ctrl` in the manifest maps to Command automatically. `MacCtrl` forces Control: use it only in the `mac` key.
 - Chrome wins every conflict with its own shortcuts, so a default that collides is simply dead. `Ctrl+Shift+A` is Chrome's tab search and cannot be claimed. Verify a new default against Chrome's list and leave the command unbound rather than shipping a binding that never fires.
 - `_execute_action` opens the popup but never fires `onCommand`. The popup bootstraps on load instead.
 

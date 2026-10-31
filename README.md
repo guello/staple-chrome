@@ -45,15 +45,15 @@ The next-window command cycles through your normal windows in a stable order, so
 
 ## Shortcuts
 
-Chrome allows an extension to suggest at most four default shortcuts, so the fifth command ships unbound. Assign it, or change any of the others, at `chrome://extensions/shortcuts`. On macOS `Ctrl` in the table below is `Command`.
+Chrome allows an extension to suggest at most four default shortcuts, so `tab-switch` ships unbound. Assign it, or change any of the others, at `chrome://extensions/shortcuts`. On macOS the tab moves use Control and Shift with the arrow keys.
 
-| Command                 | Default               | Action                                     |
-| ----------------------- | --------------------- | ------------------------------------------ |
-| `tab-switch`            | `Alt+Q`               | Switch to the most recently used tab.      |
-| `tab-shift-left`        | `Ctrl+Shift+PageUp`   | Move the selected tabs left.               |
-| `tab-shift-right`       | `Ctrl+Shift+PageDown` | Move the selected tabs right.              |
-| `tab-shift-next-window` | `Alt+Shift+M`         | Move the selected tabs to the next window. |
-| `tab-shift-undock`      | none                  | Move the selected tabs to a new window.    |
+| Command                    | Default               | macOS | Action                                     |
+| -------------------------- | --------------------- | ----- | ------------------------------------------ |
+| `tab-shift-left`           | `Ctrl+Shift+PageUp`   | `⌃⇧←` | Move the selected tabs left.               |
+| `tab-shift-right`          | `Ctrl+Shift+PageDown` | `⌃⇧→` | Move the selected tabs right.              |
+| `tab-shift-to-next-window` | `Alt+Shift+M`         | `⌃⇧↓` | Move the selected tabs to the next window. |
+| `tab-shift-undock`         | none                  | `⌃⇧↑` | Move the selected tabs to a new window.    |
+| `tab-switch`               | none                  | none  | Switch to the most recently used tab.      |
 
 ## Install
 

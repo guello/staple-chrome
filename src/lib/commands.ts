@@ -2,7 +2,7 @@ export const COMMAND_IDS = [
   'tab-switch',
   'tab-shift-left',
   'tab-shift-right',
-  'tab-shift-next-window',
+  'tab-shift-to-next-window',
   'tab-shift-undock',
 ] as const
 

@@ -29,7 +29,7 @@ const PRESENTATION: Record<CommandId, CommandPresentation> = {
     label: 'Move tabs right',
     icon: 'M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z',
   },
-  'tab-shift-next-window': {
+  'tab-shift-to-next-window': {
     feature: 'tabShift',
     label: 'Move tabs to the next window',
     icon: 'M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8h14v10z',

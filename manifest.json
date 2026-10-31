@@ -24,32 +24,35 @@
   },
   "permissions": ["storage"],
   "commands": {
-    "tab-switch": {
-      "description": "Switch to the most recently used tab",
-      "suggested_key": {
-        "default": "Alt+Q"
-      }
-    },
     "tab-shift-left": {
-      "description": "Move the selected tabs left",
+      "description": "Move tabs left",
       "suggested_key": {
-        "default": "Ctrl+Shift+PageUp"
+        "default": "Ctrl+Shift+PageUp",
+        "mac": "MacCtrl+Shift+Left"
       }
     },
     "tab-shift-right": {
-      "description": "Move the selected tabs right",
+      "description": "Move tabs right",
       "suggested_key": {
-        "default": "Ctrl+Shift+PageDown"
+        "default": "Ctrl+Shift+PageDown",
+        "mac": "MacCtrl+Shift+Right"
       }
     },
-    "tab-shift-next-window": {
-      "description": "Move the selected tabs to the next window",
+    "tab-shift-to-next-window": {
+      "description": "Move tabs to next window",
       "suggested_key": {
-        "default": "Alt+Shift+M"
+        "default": "Alt+Shift+M",
+        "mac": "MacCtrl+Shift+Down"
       }
     },
     "tab-shift-undock": {
-      "description": "Move the selected tabs to a new window"
+      "description": "Move tabs to new window",
+      "suggested_key": {
+        "mac": "MacCtrl+Shift+Up"
+      }
+    },
+    "tab-switch": {
+      "description": "Switch to previous tab"
     }
   }
 }

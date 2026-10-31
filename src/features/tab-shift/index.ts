@@ -139,6 +139,6 @@ const moveToNextWindow = async (): Promise<void> => {
 export const registerTabShift = (): void => {
   registerCommand('tab-shift-left', () => shift('left'))
   registerCommand('tab-shift-right', () => shift('right'))
-  registerCommand('tab-shift-next-window', moveToNextWindow)
+  registerCommand('tab-shift-to-next-window', moveToNextWindow)
   registerCommand('tab-shift-undock', undock)
 }
