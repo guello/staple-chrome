@@ -30,7 +30,7 @@ const options: BuildOptions = {
   bundle: true,
   format: 'esm',
   platform: 'browser',
-  target: 'chrome102',
+  target: 'chrome121',
   minify: !watch,
   sourcemap: watch,
   logLevel: 'info',

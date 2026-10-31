@@ -3,7 +3,7 @@
   "name": "Staple",
   "version": "0.1.0",
   "description": "Essential Chrome utilities packaged as a single fast, performant, and scalable extension",
-  "minimum_chrome_version": "102",
+  "minimum_chrome_version": "121",
   "icons": {
     "16": "media/icon-16.png",
     "32": "media/icon-32.png",

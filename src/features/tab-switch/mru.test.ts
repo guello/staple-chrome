@@ -10,6 +10,7 @@ import {
   moveTab,
   removeTab,
   removeWindow,
+  seedState,
 } from './mru'
 
 const history = (...entries: [tabId: number, windowId: number][]): MruState =>
@@ -72,4 +73,23 @@ test('rejects anything that is not a stored history', () => {
   assert.equal(isMruState([]), true)
   assert.equal(isMruState('history'), false)
   assert.equal(isMruState([{ tabId: '1', windowId: 10 }]), false)
+})
+
+test('seeds the history from access times, most recent first', () => {
+  const tabs = [
+    { tabId: 1, windowId: 10, lastAccessed: 100 },
+    { tabId: 2, windowId: 10, lastAccessed: 300 },
+    { tabId: 3, windowId: 20, lastAccessed: 200 },
+  ]
+
+  assert.deepEqual(seedState(history(), tabs), history([2, 10], [3, 20], [1, 10]))
+})
+
+test('keeps recorded activations ahead of seeded tabs', () => {
+  const tabs = [
+    { tabId: 1, windowId: 10, lastAccessed: 100 },
+    { tabId: 2, windowId: 10, lastAccessed: 300 },
+  ]
+
+  assert.deepEqual(seedState(history([1, 10]), tabs), history([1, 10], [2, 10]))
 })

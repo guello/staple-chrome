@@ -41,6 +41,6 @@ Neither has fired. Two worker-centric features plus a small static popup and opt
 
 Manifest V3 only. Manifest V2 was removed from Chrome and the store across 2025 and 2026, so there is no fallback path to maintain.
 
-`minimum_chrome_version` is `102`, paired with esbuild's `chrome102` target. Every API in use predates it. Raise both together, and only after checking the `@since` of the API that forces the change.
+`minimum_chrome_version` is `121`, paired with esbuild's `chrome121` target. 121 is the floor set by `tab.lastAccessed`, and every other API in use is older. Raise both together, and only after checking the `@since` of the API that forces the change.
 
 The service worker constraint shapes the whole design: Chrome terminates it after roughly 30 seconds idle. State is event-sourced into `chrome.storage.session`, and every command recomputes what it needs from live queries rather than trusting anything held in memory.

@@ -1,4 +1,14 @@
-import { type MruState, activateTab, candidates, isMruState, moveTab, removeTab, removeWindow } from './mru'
+import {
+  type AccessedTab,
+  type MruState,
+  activateTab,
+  candidates,
+  isMruState,
+  moveTab,
+  removeTab,
+  removeWindow,
+  seedState,
+} from './mru'
 
 import { registerCommand } from '@/lib/commands'
 import { getSettings } from '@/lib/settings'
@@ -38,6 +48,14 @@ const update = (mutate: (state: MruState) => MruState): Promise<void> =>
     await writeState(mutate(await readState()))
   })
 
+const seed = async (): Promise<void> => {
+  const tabs = await chrome.tabs.query({ windowType: 'normal' })
+  const accessed: AccessedTab[] = tabs.flatMap(({ id, windowId, lastAccessed }) =>
+    id === undefined ? [] : [{ tabId: id, windowId, lastAccessed }]
+  )
+  await update(state => seedState(state, accessed))
+}
+
 const switchTab = async (): Promise<void> => {
   const settings = await getSettings()
   if (!settings['tabSwitch.enabled']) return
@@ -60,6 +78,14 @@ const switchTab = async (): Promise<void> => {
 }
 
 export const registerTabSwitch = (): void => {
+  chrome.runtime.onInstalled.addListener(() => {
+    void seed()
+  })
+
+  chrome.runtime.onStartup.addListener(() => {
+    void seed()
+  })
+
   chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
     void update(state => activateTab(state, { tabId, windowId }))
   })

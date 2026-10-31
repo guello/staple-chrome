@@ -36,7 +36,7 @@ Every `commands` key must exist in `COMMAND_IDS` in `src/lib/commands.ts`, and e
 
 ## Fields that pair with something else
 
-- `minimum_chrome_version` is `102` and `scripts/build.mts` targets `chrome102`. Change both together, and only after checking the `@since` of every Chrome API in use.
+- `minimum_chrome_version` is `121` and `scripts/build.mts` targets `chrome121`. Change both together, and only after checking the `@since` of every Chrome API in use. 121 is the version that added `tab.lastAccessed`, which Tab Switch uses to fill its history at startup.
 - `version` is the store version; `package.json` `version` names the zip that `scripts/package.mts` produces. Keep them equal.
 - `background.type` is `module`, matching esbuild's `format: 'esm'` output.
 - Paths in `action`, `options_ui` and `icons` are resolved inside `dist/`, so they mirror the `outbase: 'src'` layout, not the repository layout. `media` is the one path that is the same in both.

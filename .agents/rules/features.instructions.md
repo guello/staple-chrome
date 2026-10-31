@@ -16,6 +16,7 @@ Everything worth testing is a pure function in a sibling module (`mru.ts`, `move
 Replaces a single-command extension that toggled between the two most recently used tabs of a window. The core is faithful; the fixes are these.
 
 - History lives in `chrome.storage.session`, not `local`. The original wrote tab ids to disk, incognito ones included. Session storage is in memory, survives worker suspension, and clears on browser restart, which is what the original's in-memory state did accidentally.
+- Session storage starts empty after an install, a reload or a browser restart, so `runtime.onInstalled` and `runtime.onStartup` seed the history from `tab.lastAccessed` through `seedState()`. Without the seed, the command does nothing until two tabs are activated. Activations recorded before the seed lands stay ahead of it.
 - Every read, modify and write goes through `serialize()`. The original polled a boolean mutex every 50ms and still lost writes.
 - Activation walks deeper into the history when a candidate tab is gone, instead of failing silently on a closed tab.
 - The history is event sourced from `tabs.onActivated`, `windows.onFocusChanged` (normal windows only, ignoring `WINDOW_ID_NONE`), `tabs.onAttached`, `tabs.onRemoved` and `windows.onRemoved`. `onAttached` remaps the entry rather than dropping it, so a dragged tab keeps its place.
