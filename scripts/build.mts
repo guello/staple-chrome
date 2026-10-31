@@ -9,7 +9,7 @@ const staticFiles: [string, string][] = [
   ['src/options/options.html', 'dist/options/options.html'],
   ['src/options/options.css', 'dist/options/options.css'],
   ['src/ui/chrome.css', 'dist/ui/chrome.css'],
-  ['media/icons', 'dist/media/icons'],
+  ['media', 'dist/media'],
 ]
 
 const copyStatic: Plugin = {

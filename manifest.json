@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Staple",
   "version": "0.1.0",
-  "description": "Multi-purpose extension collecting different utilities in a single fast, performant, clean, portable and scalable extension",
+  "description": "Essential Chrome utilities packaged as a single fast, performant, and scalable extension",
   "minimum_chrome_version": "102",
   "icons": {
     "16": "media/icon-16.png",

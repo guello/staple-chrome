@@ -80,5 +80,5 @@ Rules also load on their path glob in Claude Code and Copilot; other agents read
 | `.agents/rules/features.instructions.md`  | Editing `src/features/`. Deliberate behaviors that must not be simplified away. |
 | `.agents/rules/chrome-ui.instructions.md` | Editing `src/ui/`, `src/action/` or `src/options/`.                             |
 | `.agents/rules/manifest.instructions.md`  | Editing `manifest.json`.                                                        |
-| `.agents/references/stack-decisions.md`   | Changing the build, the test runner, the types or the platform baseline.        |
+| `.agents/references/stack.md`             | Changing the build, the test runner, the types or the platform baseline.        |
 | `.agents/references/release.md`           | Packaging, tagging, publishing, and where the release stands.                   |
